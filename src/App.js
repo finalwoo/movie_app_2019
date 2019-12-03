@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+function Movie({name, papapa}) {
+    return (
+        <div>
+        <h2>title</h2>
+        <h3>Movie Start {name} : {papapa}</h3>
+        </div>
+    )
+    
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1>Hello!!</h1>
+            <Movie 
+                name="겨울왕국2" 
+                something={true}
+                papapa={["hello", 1]}
+            />
+            <Movie 
+                name="나를찾아줘" 
+                something={true}
+                papapa={["bye",  2]}
+            />
+            <Movie 
+                name="블랙머니" 
+                something={true}
+                papapa={["see you", 3]}
+            />
+        </div>
+    )
 }
+
+ 
 
 export default App;
