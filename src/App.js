@@ -1,38 +1,25 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
-function Movie({name, papapa}) {
-    return (
-        <div>
-        <h2>title</h2>
-        <h3>Movie Start {name} : {papapa}</h3>
-        </div>
-    )
-    
+// state 는 오브젝트이고 component의 data를 넣을 공간이며 data는 변함
+class App extends React.Component{
+    state = {
+        count: 0 // 바뀔데이터
+    }
+    add = () => {
+        this.setState(current => ({count:current.count + 1})) //good , state를 set할때 외부의 상태에 의존하지않는 방법
+    };
+    minus = () => {
+        this.setState({count:this.state.count - 1}) // not good
+    };
+    render(){
+        return <div>
+                <h1>The count number is : {this.state.count}</h1>
+                <button onClick={this.add}>Add</button>
+                <button onClick={this.minus}>Minus</button>
+            </div>
+        
+    }
 }
-
-function App() {
-    return (
-        <div className="App">
-            <h1>Hello!!</h1>
-            <Movie 
-                name="겨울왕국2" 
-                something={true}
-                papapa={["hello", 1]}
-            />
-            <Movie 
-                name="나를찾아줘" 
-                something={true}
-                papapa={["bye",  2]}
-            />
-            <Movie 
-                name="블랙머니" 
-                something={true}
-                papapa={["see you", 3]}
-            />
-        </div>
-    )
-}
-
- 
 
 export default App;
